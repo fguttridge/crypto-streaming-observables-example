@@ -1,0 +1,94 @@
+.tracking-table {
+    width:100%;
+}
+
+.tracking-table table {
+    padding: 1px 1px 1px 1px;
+    border: 0px solid #26db26;
+    border-radius: 5px;
+}
+
+.tracking-table table tr th, .tracking-table table tr td {
+    width: 10%;
+    height: 20%;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    border-spacing: 0;
+    background-color: white;
+}
+
+.last-column {
+    border-right: 0 !important;
+}
+
+.first-column {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    font-weight: bold;
+    background-color: #26db26 !important;
+}
+
+.tracking-table table tr th {
+    border-top-right-radius: 15px;
+    height:10%;
+    background-color: #26db26 !important;
+}
+
+.greyscale {
+    background-color: rgb(238, 238, 238) !important;
+}
+
+.hidden {
+    visibility: hidden; 
+}
+
+.transaction-feed {
+    padding-top: 5%;
+    width: 100%;
+}
+
+.transaction-table {
+    table-layout: fixed;
+    width:100%;
+}
+
+.transaction-table tbody {
+    overflow-wrap: break-word;
+    display: block;
+    height: 1200px;
+    overflow: auto;
+}
+
+.transaction-table thead, .transaction-table tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+    max-height: 200px;
+}
+
+.transaction-table tr th, .tracking-table table tr td {
+    width: 2%;
+    height: 20%;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    border-spacing: 0;
+    background-color: white;
+    text-align: left !important;
+}
+
+.transaction-table table tr td {
+    color: #373D3F;
+}
+
+
+.transaction-table-wrapper {
+    max-height: 1200px;
+    overflow: auto;
+}
+
+.transaction-table-red {
+    background-color: #ff4444;
+}
+.transaction-table-green {
+    background-color: green;
+}

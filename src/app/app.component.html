@@ -1,20 +1,64 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div>
+  <div class="tracking-table" *ngIf="sampleData">
+    <h1>Price Points</h1>
+    <table>
+      <thead>
+        <tr>
+          <th class="hidden">Exchange Name</th>
+          <th>From Currency</th>
+          <th>To Currency</th>
+          <th>Price</th>
+          <th>Latest Volume</th>
+          <th>24Hr Volume</th>
+          <th class="last-column">Last Updated</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of sampleData">
+          <ng-container *ngIf="data">
+          <td class="first-column">{{data[1]}}</td>
+          <td>{{data[2]}}</td>
+          <td class="greyscale">{{data[3]}}</td>
+          <td>{{data[5] | currency:'USD':'symbol':'1.2-2'}}</td>
+          <td class="greyscale">{{data[7]}}</td>
+          <td>{{data[11] | currency:'USD':'symbol':'4.2-2'}}</td>
+          <td class="last-column greyscale">{{getInt(data[6]) * 1000 | date:'medium'}}</td>
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="transaction-feed">
+      <h1>Transaction Feed</h1>
+      <button (click)="sub()">Subscribe</button>
+      <button (click)="unsub()">Unsubscribe</button>
+    <table class="transaction-table">
+        <thead>
+          <tr>
+            <th>Exchange Name</th>
+            <th>From Currency</th>
+            <th>To Currency</th>
+            <th>Trade ID</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th class="last-column">Last Updated</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of tradeData" [ngStyle]="{'background-color': styleForTx(data[4])}">
+            <td>{{data[1]}}</td>
+            <td>{{data[2]}}</td>
+            <td>{{data[3]}}</td>
+            <td>{{data[5]}}</td>
+            <td>{{data[7] | number:'1.6-6'}}</td>
+            <td>{{data[8] | currency:'USD':'symbol':'1.2-2'}}</td>
+            <td>{{data[9] | currency:'USD':'symbol':'1.2-2'}}</td>
+            <td class="last-column">{{getInt(data[6]) * 1000 | date:'medium'}}</td>
+          </tr>  
+        </tbody>
+      </table>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
